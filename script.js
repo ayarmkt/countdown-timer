@@ -95,5 +95,5 @@ const runTimer = function () {
 
 //
 ///////////////////CHANGE REMAINING TIME HTML///////////////////
-runTimer();
+window.addEventListener('DOMContentLoaded', runTimer);
 const countdown = setInterval(runTimer, 1000);
