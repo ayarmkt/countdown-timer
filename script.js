@@ -19,7 +19,7 @@ const timerFinished = document.querySelector('.timer-finished');
 //
 ///////////////////CHANGE DEADLINE HTML///////////////////
 
-const newDeadline = new Date('May 23, 2021, 14:43');
+const newDeadline = new Date('May 23, 2023, 15:30');
 const year = newDeadline.getUTCFullYear();
 const month = months[newDeadline.getMonth()];
 const date = newDeadline.getDate();
@@ -35,10 +35,12 @@ deadline.textContent = `${month} ${date} ${year}, ${hours}:${mins}${timeFormat}`
 //
 ///////////////////CALCULATE REMAINING TIME///////////////////
 
-const calcTime = function () {
-  const deadlineTime = newDeadline.getTime();
-  let currentTime = new Date().getTime();
-  const remainingTime = deadlineTime - currentTime;
+const deadlineTime = newDeadline.getTime();
+let currentTime;
+let remainingTime;
+
+const calcTime = function (curTime, futureTime) {
+  remainingTime = futureTime - curTime;
 
   //converting format
   const formatDays = 1000 * 60 * 60 * 24;
@@ -51,6 +53,14 @@ const calcTime = function () {
   const remainingMins = Math.floor((remainingTime % formatHours) / formatMins);
   const remainingSecs = Math.floor((remainingTime % formatMins) / formatSecs);
 
+  const changeNumFormat = function (num) {
+    if (num < 10) {
+      return `0${num}`;
+    } else {
+      return num;
+    }
+  };
+
   const remainingTimeArr = [
     remainingDays,
     remainingHours,
@@ -58,24 +68,32 @@ const calcTime = function () {
     remainingSecs,
   ];
 
-  remainingTimeArr.map((item) => (item < 10 ? `0${item}` : item));
+  const newRemainingTimeArr = remainingTimeArr.map((item) =>
+    changeNumFormat(item)
+  );
 
-  console.log(remainingTimeArr.map((item) => (item < 10 ? `0${item}` : item)););
-
-  if (remainingTime < 1) {
+  if (remainingTime < 1000) {
     timerFinished.classList.add('active');
     clearInterval(countdown);
-    remainingTimeText.forEach(function (text, index) {
-      text.innerHTML = 00;
-    });
+    remainingTimeText.forEach((text, index) => (text.innerHTML = '00'));
   } else {
-    const countdown = setInterval(calcTime, 1000);
     remainingTimeText.forEach(
-      (text, index) => (text.innerHTML = remainingTimeArr[index])
+      (text, index) => (text.innerHTML = newRemainingTimeArr[index])
     );
+  }
+};
+
+const runTimer = function () {
+  currentTime = new Date().getTime();
+  calcTime(currentTime, deadlineTime);
+
+  if (remainingTime < 1000) {
+    timerFinished.classList.add('active');
+    clearInterval(countdown);
   }
 };
 
 //
 ///////////////////CHANGE REMAINING TIME HTML///////////////////
-calcTime();
+runTimer();
+const countdown = setInterval(runTimer, 1000);
