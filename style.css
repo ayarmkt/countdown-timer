@@ -12,31 +12,25 @@
   width: 100vw;
   display: grid;
   grid-template-areas:
-    '. . . .'
-    '. main main main .'
-    '. main main main .'
+    '. . . '
+    '. main main main main .'
+    '. main  main main main .'
     '. . . .';
   align-content: center;
   justify-content: center;
 }
 
 .main-section {
-  height: 600px;
-  width: 800px;
   grid-area: main;
   display: grid;
   grid-gap: 10px;
-  grid-template-areas:
-    'text-description'
-    'text-description'
-    'timer'
-    'timer'
-    'timer-description';
+  padding: 0 30px;
 }
 
 /*TEXT*/
 .text-description {
-  grid-area: text-description;
+  width: 100%;
+  grid-area: 1/1;
   display: grid;
   justify-items: center;
   align-content: end;
@@ -60,11 +54,9 @@
 
 /*TIMER*/
 .timer {
-  grid-area: timer;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   grid-gap: 5px;
   margin: 20px 0;
 }
@@ -72,8 +64,6 @@
 .timer-component {
   background: yellow;
   border: 1px solid black;
-  width: 100%;
-  height: 100%;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -94,7 +84,6 @@
 
 /*TIMER FINISHED*/
 .timer-description {
-  grid-area: timer-description;
   display: grid;
   justify-content: center;
   align-content: center;
