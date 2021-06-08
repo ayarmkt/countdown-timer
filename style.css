@@ -8,7 +8,6 @@
 /*CONTAINER*/
 .container {
   background-color: rgb(6, 19, 48);
-
   height: 100vh;
   width: 100vw;
   display: grid;
@@ -112,3 +111,5 @@
   text-align: center;
   margin-top: 10px;
 }
+
+/*NEED TO WORK ON MEDIA QUERY/*
