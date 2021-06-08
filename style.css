@@ -5,57 +5,49 @@
   font-family: 'Roboto', sans-serif;
 }
 
-body {
-  background-color: rgb(6, 19, 48);
-  height: 100%;
-
-  display: flex;
-  align-content: center;
-  justify-content: center;
-}
-
 .main-container {
-  padding: 200px 0;
+  background-color: rgb(6, 19, 48);
+  border: 2px solid aqua;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    '. . . . '
+    '. text-description text-description .'
+    '. timer timer .'
+    '. . . . ';
+  /*grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;*/
+
+  /*grid-area: 2 / 2 / span 1 / span 1;
+  display: grid;
+  
+  justify-content: center;
+  align-content: center;*/
 }
 
 .text-description {
+  background-color: pink;
   color: white;
-  padding-bottom: 100px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 7rem;
-}
-
-h3 {
-  font-size: 2rem;
+  grid-area: text-description;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 .timer {
-  display: flex;
-  justify-content: space-evenly;
+  background-color: aqua;
+  grid-area: timer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
 }
+
 
 .timer-components {
   background-color: rgb(245, 230, 20);
-  height: 200px;
-  width: 200px;
 }
 
-.timer-text {
-  width: 80%;
-  display: block;
-  margin: 0 auto;
-}
 
-.remaining-time {
-  font-size: 5rem;
-}
-
-.format {
-  font-size: 2rem;
-}
 
 .timer-finished {
   background-color: red;
