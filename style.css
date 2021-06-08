@@ -5,66 +5,113 @@
   font-family: 'Roboto', sans-serif;
 }
 
-body {
+/*CONTAINER*/
+.container {
   background-color: rgb(6, 19, 48);
-  height: 100%;
-
-  display: flex;
+  border: 2px solid aqua;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-areas:
+    '. . . .'
+    '. main main main .'
+    '. main main main .'
+    '. . . .';
   align-content: center;
   justify-content: center;
 }
 
-.main-container {
-  padding: 200px 0;
+.main-section {
+  background: bisque;
+  height: 600px;
+  width: 800px;
+  grid-area: main;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    'text-description'
+    'text-description'
+    'timer'
+    'timer'
+    'timer-description';
 }
 
+/*TEXT*/
 .text-description {
+  background: chartreuse;
+  grid-area: text-description;
+  display: grid;
+  justify-items: center;
+  align-content: end;
+}
+
+.text-description > * {
   color: white;
-  padding-bottom: 100px;
-  text-align: center;
 }
 
-h2 {
-  font-size: 7rem;
+.text-description h2 {
+  font-size: 80px;
 }
 
-h3 {
-  font-size: 2rem;
+.text-description p {
+  font-size: 40px;
 }
 
+.text-description p span {
+  display: inline-block;
+}
+
+/*TIMER*/
 .timer {
-  display: flex;
-  justify-content: space-evenly;
+  background: cornflowerblue;
+  grid-area: timer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  grid-gap: 5px;
 }
 
-.timer-components {
-  background-color: rgb(245, 230, 20);
-  height: 200px;
-  width: 200px;
+.timer-component {
+  background: yellow;
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 .timer-text {
-  width: 80%;
-  display: block;
-  margin: 0 auto;
+  background: chocolate;
+  display: grid;
+  justify-items: center;
 }
 
 .remaining-time {
-  font-size: 5rem;
+  font-size: 80px;
 }
 
 .format {
-  font-size: 2rem;
+  font-size: 20px;
 }
 
-.timer-finished {
-  background-color: red;
-  z-index: 3;
-  text-align: center;
-  margin-top: 10px;
-  visibility: hidden;
+/*TIMER FINISHED*/
+.timer-description {
+  grid-area: timer-description;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.timer-description {
+  color: white;
 }
 
 .active {
   visibility: visible;
+  background-color: red;
+  z-index: 3;
+  text-align: center;
+  margin-top: 10px;
 }
