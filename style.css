@@ -42,12 +42,9 @@
   grid-gap: 5px;
 }
 
-
 .timer-components {
   background-color: rgb(245, 230, 20);
 }
-
-
 
 .timer-finished {
   background-color: red;
