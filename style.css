@@ -5,55 +5,113 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.main-container {
+/*CONTAINER*/
+.container {
   background-color: rgb(6, 19, 48);
   border: 2px solid aqua;
   height: 100vh;
+  width: 100vw;
   display: grid;
   grid-template-areas:
-    '. . . . '
-    '. text-description text-description .'
-    '. timer timer .'
-    '. . . . ';
-  /*grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr 2fr 1fr;*/
-
-  /*grid-area: 2 / 2 / span 1 / span 1;
-  display: grid;
-  
+    '. . . .'
+    '. main main main .'
+    '. main main main .'
+    '. . . .';
+  align-content: center;
   justify-content: center;
-  align-content: center;*/
 }
 
+.main-section {
+  background: bisque;
+  height: 600px;
+  width: 800px;
+  grid-area: main;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    'text-description'
+    'text-description'
+    'timer'
+    'timer'
+    'timer-description';
+}
+
+/*TEXT*/
 .text-description {
-  background-color: pink;
-  color: white;
+  background: chartreuse;
   grid-area: text-description;
+  display: grid;
+  justify-items: center;
+  align-content: end;
+}
+
+.text-description > * {
+  color: white;
+}
+
+.text-description h2 {
+  font-size: 80px;
+}
+
+.text-description p {
+  font-size: 40px;
+}
+
+.text-description p span {
+  display: inline-block;
+}
+
+/*TIMER*/
+.timer {
+  background: cornflowerblue;
+  grid-area: timer;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  grid-gap: 5px;
+}
+
+.timer-component {
+  background: yellow;
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
   display: grid;
   justify-content: center;
   align-content: center;
 }
 
-.timer {
-  background-color: aqua;
-  grid-area: timer;
+.timer-text {
+  background: chocolate;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+  justify-items: center;
 }
 
-.timer-components {
-  background-color: rgb(245, 230, 20);
+.remaining-time {
+  font-size: 80px;
 }
 
-.timer-finished {
-  background-color: red;
-  z-index: 3;
-  text-align: center;
-  margin-top: 10px;
-  visibility: hidden;
+.format {
+  font-size: 20px;
+}
+
+/*TIMER FINISHED*/
+.timer-description {
+  grid-area: timer-description;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.timer-description {
+  color: white;
 }
 
 .active {
   visibility: visible;
+  background-color: red;
+  z-index: 3;
+  text-align: center;
+  margin-top: 10px;
 }

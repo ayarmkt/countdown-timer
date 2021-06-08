@@ -89,6 +89,7 @@ const runTimer = function () {
 
   if (remainingTime < 1000) {
     timerFinished.classList.add('active');
+    //!!! REACHED DEADLINE !!!
     clearInterval(countdown);
   }
 };
