@@ -62,7 +62,7 @@
 .timer {
   grid-area: timer;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   justify-items: center;
   align-items: center;
   grid-gap: 5px;
@@ -112,4 +112,4 @@
   margin-top: 10px;
 }
 
-/*NEED TO WORK ON MEDIA QUERY/*
+/*NEED TO WORK ON MEDIA QUERY*/
