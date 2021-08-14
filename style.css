@@ -22,7 +22,8 @@
 
 .main-section {
   height: 600px;
-  width: 800px;
+  width: 80vw;
+  max-width: 800px;
   grid-area: main;
   display: grid;
   grid-gap: 10px;
@@ -32,6 +33,7 @@
     'timer'
     'timer'
     'timer-description';
+  border: 1px solid white;
 }
 
 /*TEXT*/
@@ -40,6 +42,7 @@
   display: grid;
   justify-items: center;
   align-content: end;
+  border: 1px solid red;
 }
 
 .text-description > * {
@@ -48,10 +51,12 @@
 
 .text-description h2 {
   font-size: 80px;
+  text-align: center;
 }
 
 .text-description p {
   font-size: 40px;
+  text-align: center;
 }
 
 .text-description p span {
@@ -61,8 +66,10 @@
 /*TIMER*/
 .timer {
   grid-area: timer;
+  border: 1px solid red;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   justify-items: center;
   align-items: center;
   grid-gap: 5px;
@@ -98,6 +105,7 @@
   display: grid;
   justify-content: center;
   align-content: center;
+  border: 1px solid red;
 }
 
 .timer-description {
@@ -113,3 +121,50 @@
 }
 
 /*NEED TO WORK ON MEDIA QUERY*/
+@media screen and (max-width: 960px) {
+  .text-description h2 {
+    font-size: 50px;
+  }
+
+  .text-description p {
+    font-size: 25px;
+  }
+
+  .timer {
+    padding: 0 30px;
+  }
+
+  .timer-component {
+    height: 150px;
+  }
+
+  .remaining-time {
+    font-size: 40px;
+  }
+
+  .format {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .text-description h2 {
+    font-size: 45px;
+  }
+
+  .text-description p {
+    font-size: 25px;
+  }
+
+  .timer-component {
+    height: 120px;
+  }
+
+  .remaining-time {
+    font-size: 40px;
+  }
+
+  .format {
+    font-size: 20px;
+  }
+}
